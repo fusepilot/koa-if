@@ -1,8 +1,8 @@
 {
   "name": "koa-if",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Conditionally run middleware in koa",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "fusepilot/koa-if",
   "keywords": [
     "koa",
@@ -12,6 +12,7 @@
     "conditional"
   ],
   "scripts": {
+    "prepublish": "babel index.js --out-dir lib",
     "test": "babel-node examples/special-url.js"
   },
   "author": "Michael Delaney <michael@fusepilot.com> (http://fusepilot.com)",

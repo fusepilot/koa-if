@@ -1,7 +1,7 @@
-const isFunction = require('lodash/lang/isFunction')
-const isBoolean = require('lodash/lang/isBoolean')
+import isFunction from 'lodash/lang/isFunction'
+import isBoolean from 'lodash/lang/isBoolean'
 
-module.exports = function(middleware, condition=true) {
+export default function(middleware, condition=true) {
   return async (ctx, next) => {
     if (isFunction(condition) && condition(ctx)) {
       await middleware(ctx, next)
