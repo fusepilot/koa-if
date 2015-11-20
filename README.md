@@ -4,18 +4,18 @@ Conditionally run middleware in Koa
 
 *Note: only tested with the new async/await style middleware in koa 2*
 
-# Install
+## Install
 
 ```bash
 npm install --save koa-if
 ```
 
-# API
+## API
 
 * `middleware` middleware to run if condition is truthy.
 * `condition` either a boolean or a function that returns a boolean. Functions are passed the current context.
 
-# Usage:
+## Usage:
 
 ```javascript
 const Koa = require('koa')
@@ -32,18 +32,18 @@ async function specialMiddleware(ctx, next) {
   await next()
 }
 
+app.use(normalMiddleware)
+
 // only run specialMiddleware on /special
 app.use(test(specialMiddleware, (ctx) => {
   return ctx.url == '/special'
 }))
-
-app.use(normalMiddleware)
 
 app.listen(3000)
 ```
 
 Now, ````localhost:3000/special```` will show "Special" while all other urls will show "Normal".
 
-# License
+## License
 
 MIT
