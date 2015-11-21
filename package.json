@@ -1,6 +1,6 @@
 {
   "name": "koa-if",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Conditionally run middleware in koa",
   "main": "lib/index.js",
   "repository": "fusepilot/koa-if",
