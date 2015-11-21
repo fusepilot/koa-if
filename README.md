@@ -18,9 +18,10 @@ npm install --save koa-if
 ## Usage:
 
 ```javascript
-const Koa = require('koa')
+import Koa from 'koa'
+import test from 'koa-if'
+
 const app = new Koa()
-const test = require('koa-if')
 
 async function normalMiddleware(ctx, next) {
   if (!ctx.body) ctx.body = '<h1>Normal</h1>'

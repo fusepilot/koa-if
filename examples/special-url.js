@@ -1,6 +1,7 @@
-const Koa = require('koa')
+import Koa from 'koa'
+import test from '../src'
+
 const app = new Koa()
-const test = require('../')
 
 async function normalMiddleware(ctx, next) {
   if (!ctx.body) ctx.body = '<h1>Normal</h1>'
@@ -12,10 +13,11 @@ async function specialMiddleware(ctx, next) {
   await next()
 }
 
+app.use(normalMiddleware)
+
+// only run specialMiddleware on /special
 app.use(test(specialMiddleware, (ctx) => {
   return ctx.url == '/special'
 }))
-
-app.use(normalMiddleware)
 
 app.listen(3000)
